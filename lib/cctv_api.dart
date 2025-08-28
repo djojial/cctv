@@ -13,7 +13,7 @@ class CCTVService {
       final List<dynamic> data = body['data'];
       return data.map((item) => CCTV.fromJson(item)).toList();
     } else {
-      throw Exception("Gagal memuat data CCTV (code: ${response.statusCode})");
+      throw Exception("CCtv sedang Maintenance");
     }
   }
 

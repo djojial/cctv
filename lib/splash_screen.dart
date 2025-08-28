@@ -1,5 +1,5 @@
-import 'dart:async';
-import 'package:flutter/material.dart';
+import 'dart:async'; //timer
+import 'package:flutter/material.dart'; //widget material
 import 'pages/home_page.dart';
 
 class SplashScreen extends StatefulWidget {

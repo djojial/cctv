@@ -376,7 +376,7 @@ class _CustomHomePageState extends State<CustomHomePage>
                     ),
                     ListTile(
                       title: const Text(
-                        'Tentang Aplikasi',
+                        'Tentang Kami',
                         style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
                       onTap: () {
