@@ -2,10 +2,9 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../models/cctv_model.dart';
 
-class CCTVService {
+class CCTVApi {
   static const String apiUrl = "https://cctv.bandaacehkota.go.id/api/cameras";
 
-  /// ✅ Ambil semua data CCTV
   static Future<List<CCTV>> fetchCCTVs() async {
     final response = await http.get(Uri.parse(apiUrl));
     if (response.statusCode == 200) {
@@ -17,20 +16,17 @@ class CCTVService {
     }
   }
 
-  /// ✅ Ambil daftar region unik dari CCTV (dengan "Semua" hanya sekali)
   static Future<List<String>> fetchRegions() async {
     final cctvs = await fetchCCTVs();
 
-    // ambil region unik, hapus kosong + "Semua" dari API
     final regions = cctvs
         .map((e) => e.region.trim())
         .where((r) => r.isNotEmpty && r.toLowerCase() != "semua")
         .toSet()
         .toList();
 
-    regions.sort(); // urut abjad
+    regions.sort();
 
-    // tambahkan "Semua" hanya sekali di awal
     return ["Semua", ...regions];
   }
 }

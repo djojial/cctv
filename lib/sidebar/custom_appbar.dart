@@ -25,8 +25,8 @@ class _CustomAppBarState extends State<CustomAppBar>
     );
 
     _slideAnimation = Tween<Offset>(
-      begin: const Offset(0, -1), // masuk dari atas
-      end: Offset.zero, // posisi normal
+      begin: const Offset(0, -1),
+      end: Offset.zero,
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic));
 
     _controller.forward();
@@ -56,7 +56,7 @@ class _CustomAppBarState extends State<CustomAppBar>
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 12), // supaya turun dikit
+          padding: const EdgeInsets.only(top: 12),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [

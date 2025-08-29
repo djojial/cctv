@@ -54,13 +54,11 @@ class _KontakKamiPageState extends State<KontakKamiPage>
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // 🔹 Pakai CustomAppBar
             SlideTransition(
               position: _slideAnimation,
               child: const CustomAppBar(title: "Kontak Kami"),
             ),
 
-            // ISI KONTEN
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -72,7 +70,6 @@ class _KontakKamiPageState extends State<KontakKamiPage>
                   ),
                   const SizedBox(height: 20),
 
-                  // Email
                   _buildContactCard(
                     icon: Icons.email,
                     iconColor: Colors.redAccent,
@@ -87,7 +84,6 @@ class _KontakKamiPageState extends State<KontakKamiPage>
                     },
                   ),
 
-                  // WhatsApp
                   _buildContactCard(
                     icon: Icons.phone,
                     iconColor: Colors.green,
@@ -101,7 +97,6 @@ class _KontakKamiPageState extends State<KontakKamiPage>
                     },
                   ),
 
-                  // Website
                   _buildContactCard(
                     icon: Icons.language,
                     iconColor: Colors.blue,

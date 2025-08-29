@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'custom_appbar.dart'; // ✅ import
+import 'custom_appbar.dart';
 
 class TentangKamiPage extends StatelessWidget {
   const TentangKamiPage({super.key});
@@ -11,7 +11,7 @@ class TentangKamiPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const CustomAppBar(title: "Tentang Kami"), // ✅ panggil appbar
+            const CustomAppBar(title: "Tentang Kami"),
 
             Padding(
               padding: const EdgeInsets.all(16.0),

@@ -1,5 +1,3 @@
-/// Berisi mapping asset thumbnail fallback CCTV
-
 final Map<String, String> cctvGroups = {
   "simpang pdam": "assets/simpang-pdam.png",
   "simpang dharma": "assets/simpang-dharma.png",
@@ -8,7 +6,6 @@ final Map<String, String> cctvGroups = {
   "bustanussalatin": "assets/bustanussalatin.png",
 };
 
-/// ✅ fallback kalau tidak ada mapping → logo Diskominfotik (lokal asset)
 String getCctvPlaceholder(String name) {
   final normalized = name.toLowerCase().trim();
   for (final entry in cctvGroups.entries) {

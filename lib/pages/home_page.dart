@@ -43,7 +43,7 @@ class _CustomHomePageState extends State<CustomHomePage>
       });
     });
 
-    futureCctvs = CCTVService.fetchCCTVs();
+    futureCctvs = CCTVApi.fetchCCTVs();
 
     _sidebarController = AnimationController(
       vsync: this,
@@ -55,7 +55,7 @@ class _CustomHomePageState extends State<CustomHomePage>
           CurvedAnimation(parent: _sidebarController, curve: Curves.easeInOut),
         );
 
-    CCTVService.fetchRegions().then((list) {
+    CCTVApi.fetchRegions().then((list) {
       if (mounted) {
         setState(() {
           _regions = list;
@@ -75,7 +75,6 @@ class _CustomHomePageState extends State<CustomHomePage>
     });
   }
 
-  /// ✅ Card CCTV (Thumbnail + Placeholder sesuai lokasi + fallback asset)
   Widget _buildVideoCard(CCTV cctv, int index, double screenWidth) {
     final double scale =
         1 - (0.2 * (_currentPage - index).abs()).clamp(0.0, 1.0);
@@ -268,7 +267,6 @@ class _CustomHomePageState extends State<CustomHomePage>
             },
           ),
 
-          /// AppBar
           Positioned(
             top: 0,
             left: 0,
@@ -294,6 +292,17 @@ class _CustomHomePageState extends State<CustomHomePage>
                     icon: const Icon(Icons.menu, color: Colors.white, size: 30),
                     onPressed: _toggleSidebar,
                   ),
+
+                  Spacer(),
+
+                  Image.asset(
+                    'assets/logo_apk.png',
+                    height: 40,
+                    fit: BoxFit.contain,
+                  ),
+
+                  Spacer(),
+
                   IconButton(
                     icon: const Icon(
                       Icons.bookmark,
@@ -314,7 +323,6 @@ class _CustomHomePageState extends State<CustomHomePage>
             ),
           ),
 
-          /// ✅ Search + Filter dipisah jadi widget
           Positioned(
             top: customAppBarHeight + 20,
             left: screenWidth * 0.05,
@@ -335,7 +343,6 @@ class _CustomHomePageState extends State<CustomHomePage>
             ),
           ),
 
-          /// Bottom Nav
           Positioned(
             bottom: 20,
             left: screenWidth * 0.05,
@@ -355,7 +362,6 @@ class _CustomHomePageState extends State<CustomHomePage>
             ),
           ),
 
-          /// Sidebar
           SlideTransition(
             position: _sidebarOffset,
             child: SafeArea(

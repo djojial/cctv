@@ -1,5 +1,5 @@
-import 'dart:async'; //timer
-import 'package:flutter/material.dart'; //widget material
+import 'dart:async';
+import 'package:flutter/material.dart';
 import 'pages/home_page.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen>
   String _fullText = "CCTV KOTA BANDA ACEH";
   late List<bool> _letterVisible;
 
-  bool _isLogoCentered = true; // tahap awal
+  bool _isLogoCentered = true;
 
   @override
   void initState() {
@@ -28,7 +28,6 @@ class _SplashScreenState extends State<SplashScreen>
 
     _letterVisible = List.generate(_fullText.length, (_) => false);
 
-    // Tahap 1: Logo muncul dengan bounce
     _logoController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1200),
@@ -38,7 +37,6 @@ class _SplashScreenState extends State<SplashScreen>
       curve: Curves.elasticOut,
     );
 
-    // Tahap 2: Logo geser ke kiri
     _moveController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 900),
@@ -48,7 +46,6 @@ class _SplashScreenState extends State<SplashScreen>
           CurvedAnimation(parent: _moveController, curve: Curves.easeOutCubic),
         );
 
-    // Jalankan animasi berurutan
     _logoController.forward().then((_) {
       Future.delayed(const Duration(milliseconds: 400), () {
         setState(() => _isLogoCentered = false); // pindah ke row
@@ -58,7 +55,6 @@ class _SplashScreenState extends State<SplashScreen>
       });
     });
 
-    // Pindah ke home setelah selesai
     Timer(const Duration(seconds: 5), () {
       Navigator.pushReplacement(
         context,
@@ -83,7 +79,6 @@ class _SplashScreenState extends State<SplashScreen>
     });
   }
 
-  // Efek mengetik + fade halus
   void _startSmoothTypingEffect() {
     int index = 0;
     Timer.periodic(const Duration(milliseconds: 80), (timer) {

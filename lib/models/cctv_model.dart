@@ -5,7 +5,7 @@ class CCTV {
   final double latitude;
   final double longitude;
   final bool isActive;
-  final String region; // kecamatan/region
+  final String region;
   final String? address;
 
   CCTV({
@@ -19,18 +19,15 @@ class CCTV {
     this.address,
   });
 
-  /// ✅ Thumbnail real-time snapshot (cache buster pakai timestamp)
   String get thumbnailUrl {
     if (url.isEmpty) return "";
     return "$url?ts=${DateTime.now().millisecondsSinceEpoch}";
   }
 
-  /// ✅ Apakah URL CCTV valid (bisa dipakai untuk Image/Video widget)
   bool get hasValidUrl =>
       url.isNotEmpty &&
       (url.startsWith("http://") || url.startsWith("https://"));
 
-  /// ✅ Konversi dari JSON → CCTV object
   factory CCTV.fromJson(Map<String, dynamic> json) {
     return CCTV(
       id: json['id'] is int
@@ -46,7 +43,6 @@ class CCTV {
     );
   }
 
-  /// ✅ Konversi ke JSON → Map
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -60,7 +56,6 @@ class CCTV {
     };
   }
 
-  /// ✅ Untuk debugging / log
   @override
   String toString() {
     return "CCTV(id: $id, name: $name, url: $url, lat: $latitude, lng: $longitude, active: $isActive, region: $region)";

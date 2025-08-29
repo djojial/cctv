@@ -17,11 +17,11 @@ class _CCTVPageState extends State<CCTVPage>
   late AnimationController _controller;
   late Animation<Offset> _slideAnimation;
 
-  bool _hasError = false; // 👈 handle error feed CCTV
+  bool _hasError = false;
 
   void _refreshFeed() {
     setState(() {
-      _hasError = false; // reset error state
+      _hasError = false;
     });
     _webViewController?.reload();
   }
@@ -55,7 +55,6 @@ class _CCTVPageState extends State<CCTVPage>
       backgroundColor: Colors.grey[100],
       body: Column(
         children: [
-          // HEADER custom
           SlideTransition(
             position: _slideAnimation,
             child: Container(
@@ -75,13 +74,10 @@ class _CCTVPageState extends State<CCTVPage>
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(
-                  top: 12,
-                ), // ⬅️ geser isi Row ke bawah
+                padding: const EdgeInsets.only(top: 12),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // Tombol back + judul
                     Row(
                       children: [
                         IconButton(
@@ -103,7 +99,6 @@ class _CCTVPageState extends State<CCTVPage>
                       ],
                     ),
 
-                    // Bookmark
                     ValueListenableBuilder<List<Map<String, String>>>(
                       valueListenable: bookmarksNotifier,
                       builder: (context, bookmarks, _) {
@@ -143,7 +138,6 @@ class _CCTVPageState extends State<CCTVPage>
             ),
           ),
 
-          // BODY CCTV
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
@@ -160,7 +154,6 @@ class _CCTVPageState extends State<CCTVPage>
                   ),
                   const SizedBox(height: 8),
 
-                  // CCTV preview (fallback logo kalau error)
                   AspectRatio(
                     aspectRatio: 16 / 9,
                     child: ClipRRect(
@@ -198,7 +191,6 @@ class _CCTVPageState extends State<CCTVPage>
 
                   const SizedBox(height: 16),
 
-                  // Tombol refresh
                   ElevatedButton.icon(
                     onPressed: _refreshFeed,
                     icon: const Icon(Icons.refresh),
@@ -218,7 +210,6 @@ class _CCTVPageState extends State<CCTVPage>
 
                   const SizedBox(height: 12),
 
-                  // Info tambahan
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
