@@ -297,7 +297,7 @@ class _CustomHomePageState extends State<CustomHomePage>
 
                   Image.asset(
                     'assets/logo_apk.png',
-                    height: 40,
+                    height: 50,
                     fit: BoxFit.contain,
                   ),
 
