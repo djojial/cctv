@@ -118,13 +118,11 @@ class _CustomHomePageState extends State<CustomHomePage>
                           fit: BoxFit.cover,
                         ),
                       ),
-
                 if (!isCurrent)
                   BackdropFilter(
                     filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                     child: Container(color: Colors.black26),
                   ),
-
                 Positioned(
                   left: 12,
                   bottom: 30,
@@ -144,7 +142,6 @@ class _CustomHomePageState extends State<CustomHomePage>
                     ),
                   ),
                 ),
-
                 Positioned(
                   left: 12,
                   bottom: 12,
@@ -266,7 +263,6 @@ class _CustomHomePageState extends State<CustomHomePage>
               );
             },
           ),
-
           Positioned(
             top: 0,
             left: 0,
@@ -292,17 +288,13 @@ class _CustomHomePageState extends State<CustomHomePage>
                     icon: const Icon(Icons.menu, color: Colors.white, size: 30),
                     onPressed: _toggleSidebar,
                   ),
-
                   Spacer(),
-
                   Image.asset(
                     'assets/logo_apk.png',
                     height: 50,
                     fit: BoxFit.contain,
                   ),
-
                   Spacer(),
-
                   IconButton(
                     icon: const Icon(
                       Icons.bookmark,
@@ -322,7 +314,6 @@ class _CustomHomePageState extends State<CustomHomePage>
               ),
             ),
           ),
-
           Positioned(
             top: customAppBarHeight + 20,
             left: screenWidth * 0.05,
@@ -342,9 +333,8 @@ class _CustomHomePageState extends State<CustomHomePage>
               },
             ),
           ),
-
           Positioned(
-            bottom: 20,
+            bottom: 60,
             left: screenWidth * 0.05,
             right: screenWidth * 0.05,
             child: Container(
@@ -361,7 +351,28 @@ class _CustomHomePageState extends State<CustomHomePage>
               ),
             ),
           ),
-
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+              decoration: const BoxDecoration(
+                color: Color(0xFFF2F2F2),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(12),
+                  topRight: Radius.circular(12),
+                ),
+              ),
+              child: Center(
+                child: Text(
+                  "Copyright © 2025 Diskominfotik Banda Aceh | developed by Muhammad Djoji Alamni from Universitas Abulyatama",
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontSize: 10, color: Colors.black87),
+                ),
+              ),
+            ),
+          ),
           SlideTransition(
             position: _sidebarOffset,
             child: SafeArea(
